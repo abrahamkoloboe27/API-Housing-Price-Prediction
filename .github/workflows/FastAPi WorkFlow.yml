@@ -24,7 +24,7 @@ jobs:
         docker buildx create --use
         docker buildx build \
           --file Dockerfile \
-          --tag ${{ secrets.DOCKERHUB_USERNAME }}/github_actions:API \
+          --tag zach27/github_actions:API \
           --push .
 
     env:
