@@ -13,16 +13,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Login to Docker Hub
-      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
     - name: Build Docker image
       run: |
         docker build . --file Dockerfile --tag zach27/github_actions:API
         docker images -a
 
-    - name: Publish Docker image
-      run: docker push zach27/github_actions:API
+    - name: Publish the Docker Image
+      run: |
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        docker push zach27/github_actions:API
 
     env:
       DOCKER_CLI_EXPERIMENTAL: enabled
