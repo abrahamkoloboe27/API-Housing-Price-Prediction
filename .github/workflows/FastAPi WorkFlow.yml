@@ -24,11 +24,16 @@ jobs:
         logout: true
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-    - name: Publish the Docker Image
-      run: |
-        docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-        docker push zach27/github_actions:API
-
-    env:
-      DOCKER_CLI_EXPERIMENTAL: enabled
-      DOCKER_BUILDKIT: 1
+    - name: Extract metadata (labels, tags, etc.) for Docker
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: zach27/github_actions:API
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: zach27/github_actions:API
+          labels: ${{ steps.meta.outputs.labels }}
