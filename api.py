@@ -8,6 +8,7 @@ app = FastAPI()
 
 # Load trained Pipeline
 model = load_model("./House price predictor")
+print("Model loaded")
 
 # Create input/output pydantic models
 class InputModel(BaseModel):
