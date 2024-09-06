@@ -172,3 +172,36 @@ current: {'deps_info': {'pip': '24.2', 'setuptools': '65.5.1', 'pycaret': '3.3.2
 pickle: {'deps_info': {'pip': '23.3.1', 'setuptools': '68.2.2', 'pycaret': '3.3.2', 'IPython': '8.20.0', 'ipywidgets': '7.6.5', 'tqdm': '4.65.0', 'numpy': '1.26.4', 'pandas': '2.1.4', 'jinja2': '3.1.3', 'scipy': '1.11.4', 'joblib': '1.3.2', 'sklearn': '1.4.2', 'pyod': '2.0.0', 'imblearn': '0.12.3', 'category_encoders': '2.6.3', 'lightgbm': '4.3.0', 'numba': '0.59.0', 'requests': '2.31.0', 'matplotlib': '3.7.5', 'scikitplot': '0.3.7', 'yellowbrick': '1.5', 'plotly': '5.22.0', 'plotly-resampler': 'Not installed', 'kaleido': '0.2.1', 'schemdraw': '0.15', 'statsmodels': '0.14.0', 'sktime': '0.26.0', 'tbats': '1.1.3', 'pmdarima': '2.0.4', 'psutil': '5.9.0', 'markupsafe': '2.1.3', 'pickle5': 'Not installed', 'cloudpickle': '2.2.1', 'deprecation': '2.1.0', 'xxhash': '3.4.1', 'wurlitzer': '3.0.2'}, 'python': {'version': '3.11.7', 'machine': 'x86_64'}}
   warnings.warn(
 
+2024-09-06 18:08:13,572:INFO:Initializing predict_model()
+2024-09-06 18:08:13,573:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0xffff72e6d790>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['area', 'bedrooms', 'bathrooms',
+                                             'stories', 'parking'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['mainroad', 'guestroom',
+                                             'basement', 'hotwaterheating',
+                                             'airconditioning', 'prefarea',
+                                             'furnishingstatus'],
+                                    transformer=SimpleImput...
+                                                                         'mapping': no     0
+yes    1
+NaN   -1
+dtype: int64},
+                                                                        {'col': 'prefarea',
+                                                                         'data_type': dtype('O'),
+                                                                         'mapping': no     0
+yes    1
+NaN   -1
+dtype: int64}]))),
+                ('onehot_encoding',
+                 TransformerWrapper(include=['furnishingstatus'],
+                                    transformer=OneHotEncoder(cols=['furnishingstatus'],
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('actual_estimator',
+                 Ridge(alpha=6.95, fit_intercept=False, random_state=123))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0xffff72f56fc0>)
+2024-09-06 18:08:13,573:INFO:Checking exceptions
+2024-09-06 18:08:13,573:INFO:Preloading libraries
+2024-09-06 18:08:13,588:INFO:Set up data.
+2024-09-06 18:08:13,604:INFO:Set up index.
