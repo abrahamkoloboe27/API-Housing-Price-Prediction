@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 RUN apt-get update && apt-get install -y libgomp1
 
 # Copier le code de l’application
-COPY app.py /app
+COPY * /app
 
 
 # Stage 2: Runtime stage
