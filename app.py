@@ -3,12 +3,18 @@ import pandas as pd
 from pycaret.regression import load_model, predict_model
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+import os
 # Create the app
 app = FastAPI()
 
 # Load trained Pipeline
-model = load_model("./House price predictor")
-print("Model loaded")
+model_path = "House_price_predictor"
+if os.path.exists(model_path):
+    print("Model file exists.")
+else:
+    print("Model file does not exist.")
+
+model = load_model(model_path)
 
 # Create input/output pydantic models
 class InputModel(BaseModel):
