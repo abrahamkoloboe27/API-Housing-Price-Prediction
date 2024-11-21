@@ -12,7 +12,6 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -U jax && \
     pip install --no-cache-dir -r requirements.txt
 
 
@@ -53,4 +52,4 @@ EXPOSE 7860
 HEALTHCHECK CMD curl --fail http://localhost:7860/health || exit 1
 
 # Commande pour lancer l’application
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "4"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "2"]
